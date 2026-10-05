@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Favorites - Foodie</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="dashboard-nav">
+
+        <div class="dashboard-logo">
+            🍴 Foodie
+        </div>
+
+        <div class="dashboard-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="recipes.html">Recipes</a>
+
+            <a href="user-dashboard.html">Dashboard</a>
+
+            <button onclick="logoutUser()" class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <section class="favorites-page">
+
+        <div class="favorites-heading">
+
+            <p>MY COLLECTION</p>
+
+            <h1>❤️ My Favorite Recipes</h1>
+
+            <span id="favoriteCount">
+                0 Recipes
+            </span>
+
+        </div>
+
+
+        <div id="favoritesContainer"
+             class="professional-recipe-grid">
+
+        </div>
+
+
+        <div id="noFavorites"
+             class="no-favorites">
+
+            <div>🍽️</div>
+
+            <h2>No Favorite Recipes Yet</h2>
+
+            <p>
+                Explore recipes and save your favorite
+                dishes here.
+            </p>
+
+            <a href="recipes.html">
+                Explore Recipes →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer class="dashboard-footer">
+
+        <p>
+            © 2026 Foodie Recipe App
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

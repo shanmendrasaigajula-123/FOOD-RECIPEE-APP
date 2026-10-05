@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Foodie</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ADMIN NAVBAR -->
+
+    <nav class="dashboard-nav">
+
+        <div class="dashboard-logo">
+            🍴 Foodie Admin
+        </div>
+
+        <div class="dashboard-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="recipes.html">View Recipes</a>
+
+            <button
+                onclick="logoutAdmin()"
+                class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ADMIN DASHBOARD -->
+
+    <section class="user-dashboard">
+
+        <div class="dashboard-welcome">
+
+            <p class="dashboard-label">
+                ADMIN MODULE
+            </p>
+
+            <h1>
+                Admin Dashboard 🔐
+            </h1>
+
+            <p>
+                Manage recipes and control the Foodie
+                recipe collection from one place.
+            </p>
+
+        </div>
+
+
+        <!-- ADMIN CARDS -->
+
+        <div class="dashboard-card-grid">
+
+
+            <!-- ADD RECIPE -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    ➕
+                </div>
+
+                <h2>Add Recipe</h2>
+
+                <p>
+                    Add a new recipe to the Foodie
+                    recipe collection.
+                </p>
+
+                <a href="admin-recipes.html">
+                    Add Recipe →
+                </a>
+
+            </div>
+
+
+            <!-- MANAGE RECIPES -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    🍽️
+                </div>
+
+                <h2>Manage Recipes</h2>
+
+                <p>
+                    View, edit and delete recipes
+                    from the application.
+                </p>
+
+                <a href="admin-recipes.html">
+                    Manage →
+                </a>
+
+            </div>
+
+
+            <!-- USER MODULE -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    👤
+                </div>
+
+                <h2>User Module</h2>
+
+                <p>
+                    Open the user side of the Foodie
+                    application.
+                </p>
+
+                <a href="recipes.html">
+                    View User Side →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer class="dashboard-footer">
+
+        <p>
+            © 2026 Foodie Recipe App | Admin Module
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

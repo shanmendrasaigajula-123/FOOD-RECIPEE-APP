@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Recipes - Foodie</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="dashboard-nav">
+
+        <div class="dashboard-logo">
+            🍴 Foodie Admin
+        </div>
+
+        <div class="dashboard-links">
+
+            <a href="admin-dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="recipes.html">
+                View Recipes
+            </a>
+
+            <button
+                onclick="logoutAdmin()"
+                class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+
+    <section class="admin-recipes-page">
+
+        <div class="admin-heading">
+
+            <p>ADMIN MODULE</p>
+
+            <h1>Manage Recipes</h1>
+
+            <span>
+                Add, edit and delete recipes.
+            </span>
+
+        </div>
+
+
+        <!-- ADD RECIPE FORM -->
+
+        <div class="admin-form-card">
+
+            <h2 id="formTitle">
+                ➕ Add New Recipe
+            </h2>
+
+            <form id="recipeForm">
+
+                <input
+                    type="hidden"
+                    id="editRecipeIndex"
+                >
+
+
+                <label>Recipe Name</label>
+
+                <input
+                    type="text"
+                    id="adminRecipeName"
+                    placeholder="Enter recipe name"
+                    required
+                >
+
+
+                <label>Category</label>
+
+                <select id="adminRecipeCategory" required>
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                    <option value="breakfast">
+                        Breakfast
+                    </option>
+
+                    <option value="lunch">
+                        Lunch
+                    </option>
+
+                    <option value="dinner">
+                        Dinner
+                    </option>
+
+                    <option value="dessert">
+                        Dessert
+                    </option>
+
+                    <option value="healthy">
+                        Healthy
+                    </option>
+
+                </select>
+
+
+                <label>Description</label>
+
+                <textarea
+                    id="adminRecipeDescription"
+                    placeholder="Enter recipe description"
+                    required></textarea>
+
+
+                <label>Image URL</label>
+
+                <input
+                    type="text"
+                    id="adminRecipeImage"
+                    placeholder="Enter image URL"
+                    required
+                >
+
+
+                <label>Cooking Time (minutes)</label>
+
+                <input
+                    type="number"
+                    id="adminRecipeTime"
+                    min="1"
+                    placeholder="e.g. 30"
+                >
+
+
+                <label>Difficulty</label>
+
+                <select id="adminRecipeDifficulty">
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+
+
+                <label>Servings</label>
+
+                <input
+                    type="number"
+                    id="adminRecipeServings"
+                    min="1"
+                    placeholder="e.g. 4"
+                >
+
+
+                <label>Ingredients (one per line, e.g. Rice - 2 cups)</label>
+
+                <textarea
+                    id="adminRecipeIngredients"
+                    placeholder="Rice - 2 cups&#10;Onion - 1 large"></textarea>
+
+
+                <label>Steps (one per line)</label>
+
+                <textarea
+                    id="adminRecipeSteps"
+                    placeholder="Wash the rice.&#10;Cook until soft."></textarea>
+
+
+                <div class="admin-form-buttons">
+
+                    <button
+                        type="submit"
+                        class="auth-btn">
+
+                        Save Recipe
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="clearRecipeForm()"
+                        class="admin-cancel-btn">
+
+                        Clear
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- RECIPE LIST -->
+
+        <div class="admin-list-section">
+
+            <h2>📋 Existing Recipes</h2>
+
+            <div id="adminRecipeList">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer class="dashboard-footer">
+
+        <p>
+            © 2026 Foodie Recipe App | Admin Module
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

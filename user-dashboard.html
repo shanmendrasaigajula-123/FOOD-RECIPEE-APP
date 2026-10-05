@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Dashboard - Foodie</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="dashboard-nav">
+
+        <div class="dashboard-logo">
+            🍴 Foodie
+        </div>
+
+        <div class="dashboard-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="recipes.html">Recipes</a>
+
+            <a href="favorites.html">Favorites</a>
+
+            <button onclick="logoutUser()" class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- DASHBOARD -->
+    <section class="user-dashboard">
+
+        <div class="dashboard-welcome">
+
+            <p class="dashboard-label">
+                USER DASHBOARD
+            </p>
+
+            <h1>
+                Welcome, <span id="userName">User</span> 👋
+            </h1>
+
+            <p>
+                Discover delicious recipes and save your
+                favorite dishes in one place.
+            </p>
+
+        </div>
+
+
+        <!-- DASHBOARD CARDS -->
+
+        <div class="dashboard-card-grid">
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    🍳
+                </div>
+
+                <h2>Explore Recipes</h2>
+
+                <p>
+                    Browse delicious recipes from different
+                    categories.
+                </p>
+
+                <a href="recipes.html">
+                    Explore →
+                </a>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    ❤️
+                </div>
+
+                <h2>My Favorites</h2>
+
+                <p>
+                    View the recipes you have saved as
+                    favorites.
+                </p>
+
+                <a href="favorites.html">
+                    View Favorites →
+                </a>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    🔍
+                </div>
+
+                <h2>Find Recipes</h2>
+
+                <p>
+                    Search for recipes according to your
+                    taste.
+                </p>
+
+                <a href="recipes.html">
+                    Search Now →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer class="dashboard-footer">
+
+        <p>
+            © 2026 Foodie Recipe App | User Module
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
