@@ -978,17 +978,16 @@ function displayAdminRecipes() {
 
     adminRecipes = readJSON("foodieAdminRecipes", []);
 
-    if (adminRecipes.length === 0) {
-        list.innerHTML = `<p>No recipes added yet.</p>`;
-        return;
-    }
-
-    list.innerHTML = adminRecipes.map(function (recipe, index) {
-        return `
+    const customHTML = adminRecipes.length === 0
+        ? `<p class="admin-empty">You have not added any recipes yet. Use the form above to add one.</p>`
+        : adminRecipes.map(function (recipe, index) {
+            return `
             <div class="admin-recipe-item">
 
                 <div class="admin-recipe-info">
-                    <h3>${escapeHTML(recipe.name)}</h3>
+                    <h3>${escapeHTML(recipe.name)}
+                        <a class="admin-view-link" href="${detailsLink(recipe.id)}" target="_blank">View ↗</a>
+                    </h3>
                     <p>Category: ${escapeHTML(recipe.category)}</p>
                     <p>${escapeHTML(recipe.description)}</p>
                 </div>
@@ -998,9 +997,43 @@ function displayAdminRecipes() {
                     <button class="admin-delete-btn" onclick="deleteRecipe(${index})">Delete</button>
                 </div>
 
-            </div>
-        `;
+            </div>`;
+        }).join("");
+
+    const builtInHTML = BUILT_IN_RECIPES.map(function (recipe) {
+        return `
+            <div class="admin-recipe-item">
+
+                <div class="admin-recipe-info">
+                    <h3>${escapeHTML(recipe.name)}
+                        <span class="admin-badge">Built-in</span>
+                        <a class="admin-view-link" href="${detailsLink(recipe.id)}" target="_blank">View ↗</a>
+                    </h3>
+                    <p>Category: ${escapeHTML(recipe.category)}</p>
+                    <p>${escapeHTML(recipe.description)}</p>
+                </div>
+
+            </div>`;
     }).join("");
+
+    list.innerHTML =
+        `<h3 class="admin-sub-heading">Added by you (${adminRecipes.length})</h3>` +
+        customHTML +
+        `<h3 class="admin-sub-heading">Built-in recipes (${BUILT_IN_RECIPES.length}) - read only</h3>` +
+        builtInHTML;
+}
+
+function initAdminStats() {
+    if (!document.getElementById("statTotal")) {
+        return;
+    }
+
+    const custom = readJSON("foodieAdminRecipes", []).length;
+
+    document.getElementById("statTotal").textContent = BUILT_IN_RECIPES.length + custom;
+    document.getElementById("statCustom").textContent = custom;
+    document.getElementById("statUsers").textContent = getUsers().length;
+    document.getElementById("statFavorites").textContent = readJSON("foodieFavorites", []).length;
 }
 
 const recipeForm = document.getElementById("recipeForm");
@@ -1189,5 +1222,6 @@ initRecipesPage();
 initDetailsPage();
 displayFavorites();
 displayAdminRecipes();
+initAdminStats();
 refreshFavoriteButtons();
 hydrateImages();

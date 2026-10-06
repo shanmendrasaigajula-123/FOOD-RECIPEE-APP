@@ -2522,3 +2522,78 @@ body.auth-page .auth-container {
     background-size: cover;
     background-position: center;
 }
+
+
+/* =========================================
+   ADMIN EXTRAS
+========================================= */
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto 35px;
+}
+
+.admin-stat {
+    background: white;
+    border-radius: 16px;
+    padding: 24px 15px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+}
+
+.admin-stat strong {
+    display: block;
+    font-size: 34px;
+    color: #e85d04;
+}
+
+.admin-stat span {
+    color: #777;
+    font-size: 14px;
+}
+
+.admin-hint {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    margin-top: 14px;
+}
+
+.admin-sub-heading {
+    margin: 26px 0 12px;
+    font-size: 16px;
+    color: #555;
+}
+
+.admin-empty {
+    color: #777;
+    padding: 10px 0;
+}
+
+.admin-badge {
+    display: inline-block;
+    background: #fff0e6;
+    color: #e85d04;
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.admin-view-link {
+    font-size: 13px;
+    font-weight: normal;
+    color: #e85d04;
+    margin-left: 8px;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    .admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
