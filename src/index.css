@@ -2597,3 +2597,35 @@ body.auth-page .auth-container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+
+/* =========================================
+   REACT VERSION ADDITIONS
+========================================= */
+
+/* login / signup error message */
+.auth-error {
+    background: #fdecea;
+    color: #b3261e;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    margin: 4px 0 14px;
+}
+
+/* links styled like the old anchors inside dashboard cards / nav */
+.dashboard-links a,
+.dashboard-card a {
+    text-decoration: none;
+}
+
+/* form fields in the admin form that were not styled before */
+.admin-form-card input[type="url"] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* wrap long ingredient / step text nicely */
+.admin-recipe-info p {
+    word-break: break-word;
+}
