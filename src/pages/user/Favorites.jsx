@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import DashNav from "../../components/DashNav";
 import RecipeImage from "../../components/RecipeImage";
 import { useRecipes } from "../../context/RecipeContext";
+import { capitalize } from "../../utils/helpers";
 
 export default function Favorites() {
   const { myFavorites, toggleFavorite } = useRecipes();
@@ -26,7 +27,7 @@ export default function Favorites() {
                 <RecipeImage recipe={r} className="professional-food-image" />
 
                 <div className="professional-recipe-content">
-                  <span className="food-tag">{r.category}</span>
+                  <span className="food-tag">{capitalize(r.category)}</span>
                   <h3>{r.name}</h3>
 
                   <Link to={`/recipe/${r.id}`} className="recipe-view-btn">

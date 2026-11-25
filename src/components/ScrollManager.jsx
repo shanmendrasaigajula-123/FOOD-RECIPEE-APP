@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 // Scroll to top on page change, or to #section for links like /#categories
 export default function ScrollManager() {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, key } = useLocation();
 
   useEffect(() => {
     if (hash) {
@@ -13,7 +13,7 @@ export default function ScrollManager() {
     } else {
       window.scrollTo(0, 0);
     }
-  }, [pathname, hash]);
+  }, [pathname, hash, key]);
 
   return null;
 }

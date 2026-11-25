@@ -1,4 +1,6 @@
 const U = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1000&q=80`;
+// Wikimedia Commons photo by file name
+const W = (file) => `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=1000`;
 const R = (o) => ({ rating: "4.8", reviews: 90, tag: "", servings: 4, difficulty: "Medium", ...o });
 
 export const WORLD_RECIPES = [
@@ -38,7 +40,7 @@ export const WORLD_RECIPES = [
     ingredients: [{icon:"🥛",name:"Heavy Cream",qty:"500 ml"},{icon:"🥚",name:"Egg Yolks",qty:"6"},{icon:"🍬",name:"Sugar",qty:"100 g + extra"},{icon:"🌼",name:"Vanilla Pod",qty:"1"}],
     steps: [{title:"Infuse",text:"Warm cream with the split vanilla pod."},{title:"Mix",text:"Whisk yolks and sugar, slowly pour in the warm cream."},{title:"Bake",text:"Pour into ramekins and bake in a water bath at 150°C for 35 minutes."},{title:"Caramelise",text:"Chill, then sprinkle sugar on top and torch until amber."}],
     tip: "Chill the custards for at least 4 hours before torching." }),
-  R({ id: "classic-cheeseburger", cuisine: "American", name: "Classic Cheeseburger", category: "lunch", image: U("photo-1568901346375-23c9450c58cd"), time: 25, difficulty: "Easy", tag: "POPULAR",
+  R({ id: "classic-cheeseburger", cuisine: "American", name: "Classic Cheeseburger", category: "lunch", image: W("Cheeseburger.jpg"), altImages: [U("photo-1568901346375-23c9450c58cd")], time: 25, difficulty: "Easy", tag: "POPULAR",
     description: "Juicy smashed beef patty, melted cheddar and all the toppings.",
     longDescription: "The all-American diner burger: a crispy-edged smashed patty, gooey cheese, pickles and special sauce on a toasted bun.",
     ingredients: [{icon:"🥩",name:"Ground Beef",qty:"500 g"},{icon:"🍔",name:"Burger Buns",qty:"4"},{icon:"🧀",name:"Cheddar Slices",qty:"4"},{icon:"🥬",name:"Lettuce & Tomato",qty:"for topping"},{icon:"🥒",name:"Pickles",qty:"8 slices"}],

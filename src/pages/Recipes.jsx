@@ -16,7 +16,9 @@ export default function Recipes() {
 
   const update = (key, value) => {
     const next = new URLSearchParams(params);
-    if (value && value !== "all") next.set(key, value);
+    // "all" means "no filter" only for the category / cuisine buttons, never for the search text
+    const isFilter = key !== "search";
+    if (value && !(isFilter && value === "all")) next.set(key, value);
     else next.delete(key);
     setParams(next, { replace: true });
   };

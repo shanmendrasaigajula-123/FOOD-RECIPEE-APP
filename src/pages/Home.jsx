@@ -124,8 +124,10 @@ export default function Home() {
                   <span
                     className={"favorite" + (saved ? " saved" : "")}
                     role="button"
+                    tabIndex={0}
                     aria-label={`Save ${r.name}`}
                     onClick={() => toggleFavorite(r.id)}
+                    onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), toggleFavorite(r.id))}
                   >
                     {saved ? "♥" : "♡"}
                   </span>

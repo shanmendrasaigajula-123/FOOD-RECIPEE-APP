@@ -1,5 +1,7 @@
 // Extra built-in recipes: breakfast, lunch, dinner, dessert, healthy, drinks
 const U = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1000&q=80`;
+// Wikimedia Commons photo by file name (the file name describes the dish, so the picture always matches).
+const W = (file) => `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=1000`;
 
 export const MORE_RECIPES = [
   /* ===================== BREAKFAST ===================== */
@@ -61,7 +63,8 @@ export const MORE_RECIPES = [
     id: "aloo-paratha",
     name: "Aloo Paratha",
     category: "breakfast",
-    image: U("photo-1626132647523-66f5bf380027"),
+    image: W("Aloo Paratha with Butter from India.jpg"),
+    altImages: [W("Aloo paratha with butter.jpg"), W("Aloo Paratha with curd and Pickle.jpg")],
     description: "Whole-wheat flatbread stuffed with spiced mashed potato, served with butter.",
     longDescription: "Soft, golden whole-wheat parathas stuffed with a tangy, spiced potato filling and cooked with butter until crisp at the edges.",
     rating: "4.8", reviews: 142, tag: "",
@@ -145,7 +148,7 @@ export const MORE_RECIPES = [
     id: "lemon-rice",
     name: "Tangy Lemon Rice",
     category: "lunch",
-    image: U("photo-1596797038530-2c107229654b"),
+    image: W("Lemon rice.jpg"),
     description: "Fluffy rice tempered with mustard, peanuts, curry leaves and fresh lemon.",
     longDescription: "A bright South Indian rice dish (chitranna) with a crunchy peanut tempering, turmeric and fresh lemon juice. Ready in 20 minutes and great for lunchboxes.",
     rating: "4.5", reviews: 66, tag: "",
@@ -339,7 +342,8 @@ export const MORE_RECIPES = [
     id: "moong-sprouts-salad",
     name: "Moong Sprouts Salad",
     category: "healthy",
-    image: U("photo-1540420773420-3366772f4999"),
+    image: W("Kosambari.jpg"),
+    altImages: [U("photo-1540420773420-3366772f4999")],
     description: "Crunchy sprouted moong with onion, tomato, cucumber and lemon.",
     longDescription: "A high-protein, no-cook salad of fresh moong sprouts tossed with chopped vegetables, chaat masala and lime. Light, filling and ready in 10 minutes.",
     rating: "4.5", reviews: 52, tag: "HIGH PROTEIN",

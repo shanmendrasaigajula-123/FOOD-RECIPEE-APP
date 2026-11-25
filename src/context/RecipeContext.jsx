@@ -18,7 +18,7 @@ const FAVS_KEY = "foodieFavoritesByUser";
 const RecipeContext = createContext(null);
 
 export function RecipeProvider({ children }) {
-  const { session, isUser } = useAuth();
+  const { session, isUser, isAdmin, users } = useAuth();
   const showToast = useToast();
   const navigate = useNavigate();
 
@@ -68,6 +68,11 @@ export function RecipeProvider({ children }) {
   const isFavorite = (id) => myFavoriteIds.includes(id);
 
   const toggleFavorite = (id) => {
+    if (isAdmin) {
+      // admins have no favorites list - do not bounce them to the login page
+      showToast("Favorites are for user accounts. Please login as a user to save recipes.");
+      return;
+    }
     if (!isUser) {
       showToast("Please login as a user to save recipes ❤️");
       navigate("/login");
@@ -86,7 +91,11 @@ export function RecipeProvider({ children }) {
 
   const myFavorites = myFavoriteIds.map(findRecipe).filter(Boolean);
 
-  const totalFavorites = Object.values(favoritesByUser).reduce((sum, list) => sum + list.length, 0);
+  // only count favorites of users that still exist (removed users no longer inflate the admin stat)
+  const totalFavorites = Object.entries(favoritesByUser).reduce(
+    (sum, [email, list]) => (users.some((u) => u.email === email) ? sum + list.length : sum),
+    0
+  );
 
   const value = {
     recipes,
