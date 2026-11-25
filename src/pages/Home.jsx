@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import RecipeImage from "../components/RecipeImage";
 import { useRecipes } from "../context/RecipeContext";
-import { CATEGORIES } from "../utils/helpers";
+import { CATEGORIES, CUISINES } from "../utils/helpers";
 
 export default function Home() {
   const { recipes, isFavorite, toggleFavorite } = useRecipes();
@@ -77,6 +77,33 @@ export default function Home() {
               <p>{countFor(c.value)}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* CUISINES */}
+      <section className="categories" id="cuisines">
+        <div className="section-heading">
+          <p>AROUND THE WORLD</p>
+          <h2>Browse By Cuisine</h2>
+          <span>Indian, Italian, French, American, Japanese and many more</span>
+        </div>
+
+        <div className="category-grid">
+          {CUISINES.map((c) => {
+            const n = recipes.filter((r) => r.cuisine === c.value).length;
+            return (
+              <div
+                className="category"
+                key={c.value}
+                style={{ cursor: "pointer" }}
+                onClick={() => navigate("/recipes?cuisine=" + c.value)}
+              >
+                <div className="category-icon">{c.icon}</div>
+                <h3>{c.value}</h3>
+                <p>{n + (n === 1 ? " Recipe" : " Recipes")}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 

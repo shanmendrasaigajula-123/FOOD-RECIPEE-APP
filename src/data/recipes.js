@@ -179,6 +179,18 @@ const BASE_RECIPES = [
 ];
 
 import { MORE_RECIPES } from "./moreRecipes";
+import { WORLD_RECIPES } from "./worldRecipes";
+
+// Cuisine of the original recipes (everything not listed here is Indian)
+const ORIGINAL_CUISINE = {
+  "creamy-italian-pasta": "Italian", "margherita-pizza": "Italian",
+  "chicken-burger": "American", "fluffy-pancakes": "American", "chocolate-brownies": "American",
+  "chocolate-cake": "American", "fresh-garden-salad": "International", "quinoa-veggie-bowl": "International",
+  "fruit-yogurt-parfait": "International", "iced-cold-coffee": "International", "mint-lemonade": "International",
+};
 
 // original 6 recipes first (home page "Trending" shows the first 3), then the rest
-export const BUILT_IN_RECIPES = [...BASE_RECIPES, ...MORE_RECIPES];
+export const BUILT_IN_RECIPES = [
+  ...[...BASE_RECIPES, ...MORE_RECIPES].map((r) => ({ ...r, cuisine: ORIGINAL_CUISINE[r.id] || "Indian" })),
+  ...WORLD_RECIPES,
+];

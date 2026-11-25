@@ -46,3 +46,9 @@ npm run build      # production build -> dist/
 
 See the steps in the main instructions. `vercel.json` is already included so
 page refreshes on routes like `/recipes` or `/admin` work correctly.
+
+
+## World cuisines
+Recipes now include Indian plus Italian, French, American, Mexican, Japanese, Chinese, Thai, Greek, Spanish and Vietnamese dishes. Filter by cuisine on the Recipes page or from the home page.
+
+Run: `npm install` then `npm run dev`.

@@ -4,11 +4,12 @@ import DashNav from "../../components/DashNav";
 import { useRecipes } from "../../context/RecipeContext";
 import { useToast } from "../../context/ToastContext";
 import { BUILT_IN_RECIPES } from "../../data/recipes";
-import { CATEGORIES } from "../../utils/helpers";
+import { CATEGORIES, CUISINES } from "../../utils/helpers";
 
 const EMPTY = {
   name: "",
   category: "",
+  cuisine: "",
   description: "",
   image: "",
   time: "",
@@ -63,6 +64,7 @@ export default function AdminRecipes() {
     setForm({
       name: recipe.name || "",
       category: recipe.category || "",
+      cuisine: recipe.cuisine || "",
       description: recipe.description || "",
       image: recipe.image || "",
       time: recipe.time ?? "",
@@ -113,6 +115,16 @@ export default function AdminRecipes() {
               {CATEGORIES.map((c) => (
                 <option key={c.value} value={c.value}>
                   {c.label}
+                </option>
+              ))}
+            </select>
+
+            <label>Cuisine</label>
+            <select value={form.cuisine} onChange={set("cuisine")} required>
+              <option value="">Select Cuisine</option>
+              {CUISINES.map((c) => (
+                <option key={c.value} value={c.value}>
+                  {c.icon} {c.value}
                 </option>
               ))}
             </select>
@@ -189,7 +201,7 @@ export default function AdminRecipes() {
                       View ↗
                     </Link>
                   </h3>
-                  <p>Category: {recipe.category}</p>
+                  <p>Category: {recipe.category} · {recipe.cuisine}</p>
                   <p>{recipe.description}</p>
                 </div>
 
@@ -211,7 +223,7 @@ export default function AdminRecipes() {
                     View ↗
                   </Link>
                 </h3>
-                <p>Category: {recipe.category}</p>
+                <p>Category: {recipe.category} · {recipe.cuisine}</p>
                 <p>{recipe.description}</p>
               </div>
             </div>

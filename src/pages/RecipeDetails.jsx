@@ -71,7 +71,7 @@ export default function RecipeDetails() {
         <RecipeImage recipe={r} className="detail-image" />
 
         <div className="detail-intro">
-          <span className="detail-tag">{capitalize(r.category)} Recipe</span>
+          <span className="detail-tag">{r.cuisine} · {capitalize(r.category)} Recipe</span>
           <h1>{r.name}</h1>
           <p className="detail-description">{r.longDescription || r.description}</p>
 

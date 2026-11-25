@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import RecipeCard from "../components/RecipeCard";
 import { useRecipes } from "../context/RecipeContext";
-import { CATEGORIES } from "../utils/helpers";
+import { CATEGORIES, CUISINES } from "../utils/helpers";
 import { Link } from "react-router-dom";
 
 export default function Recipes() {
@@ -12,6 +12,7 @@ export default function Recipes() {
 
   const search = params.get("search") || "";
   const category = params.get("category") || "all";
+  const cuisine = params.get("cuisine") || "all";
 
   const update = (key, value) => {
     const next = new URLSearchParams(params);
@@ -29,7 +30,8 @@ export default function Recipes() {
       r.name.toLowerCase().includes(q) ||
       String(r.description).toLowerCase().includes(q) ||
       r.ingredients.some((i) => i.name.toLowerCase().includes(q));
-    return matchesCategory && matchesSearch;
+    const matchesCuisine = cuisine === "all" || r.cuisine === cuisine;
+    return matchesCategory && matchesCuisine && matchesSearch;
   });
 
   return (
@@ -69,6 +71,24 @@ export default function Recipes() {
               onClick={() => update("category", c.value)}
             >
               {c.icon} {c.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="recipe-filters" style={{ marginTop: "12px" }}>
+          <button
+            className={"filter" + (cuisine === "all" ? " active-filter" : "")}
+            onClick={() => update("cuisine", "all")}
+          >
+            🌍 All Cuisines
+          </button>
+          {CUISINES.map((c) => (
+            <button
+              key={c.value}
+              className={"filter" + (cuisine === c.value ? " active-filter" : "")}
+              onClick={() => update("cuisine", c.value)}
+            >
+              {c.icon} {c.value}
             </button>
           ))}
         </div>

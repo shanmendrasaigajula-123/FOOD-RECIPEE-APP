@@ -7,6 +7,15 @@ export const CATEGORIES = [
   { value: "drinks", label: "Drinks", icon: "🥤" },
 ];
 
+export const CUISINES = [
+  { value: "Indian", icon: "🇮🇳" }, { value: "Italian", icon: "🇮🇹" }, { value: "French", icon: "🇫🇷" },
+  { value: "American", icon: "🇺🇸" }, { value: "Mexican", icon: "🇲🇽" }, { value: "Japanese", icon: "🇯🇵" },
+  { value: "Chinese", icon: "🇨🇳" }, { value: "Thai", icon: "🇹🇭" }, { value: "Greek", icon: "🇬🇷" },
+  { value: "Spanish", icon: "🇪🇸" }, { value: "Vietnamese", icon: "🇻🇳" }, { value: "International", icon: "🌍" },
+];
+
+export const cuisineIcon = (c) => CUISINES.find((x) => x.value === c)?.icon || "🌍";
+
 export function capitalize(text) {
   const s = String(text || "");
   return s.charAt(0).toUpperCase() + s.slice(1);
@@ -33,6 +42,7 @@ export function normaliseAdminRecipe(r) {
     id: r.id,
     name: r.name,
     category: r.category,
+    cuisine: r.cuisine || "International",
     image: r.image,
     description: r.description,
     longDescription: r.description,

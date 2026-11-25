@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import RecipeImage from "./RecipeImage";
 import { useRecipes } from "../context/RecipeContext";
+import { cuisineIcon } from "../utils/helpers";
 
 export default function RecipeCard({ recipe: r }) {
   const { isFavorite, toggleFavorite } = useRecipes();
@@ -20,7 +21,7 @@ export default function RecipeCard({ recipe: r }) {
       </RecipeImage>
 
       <div className="professional-recipe-content">
-        <div className="food-rating">⭐ {r.rating}</div>
+        <div className="food-rating">⭐ {r.rating} · {cuisineIcon(r.cuisine)} {r.cuisine}</div>
         <h3>{r.name}</h3>
         <p>{r.description}</p>
 
